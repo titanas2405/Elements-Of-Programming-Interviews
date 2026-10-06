@@ -109,7 +109,7 @@ int main(int argc,char ** argv){
 	std::optional<int> o_arg1 = ParseInt(argv[1]);
 	std::optional<int> o_arg2 = ParseInt(argv[2]);
 	
-	//Check if value ex
+	//Check if value exist
 	if (!o_arg1 || !o_arg2){
 		std::cout << "a,b must be a number or in range\n" ;
 		return 1;
