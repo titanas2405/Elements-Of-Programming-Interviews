@@ -52,7 +52,7 @@ bool IsPalindrome(int x){
 	//Otherwise Remove MSB and LSB and continue 
 	//We hold a mask variable m that we divide by 100 in each iteration
 	//since we remove 2 digits from x
-	
+	//Time complexity O(n)
 	
 	//Checking for the 2 cases
 	if (x < 0) return false;
@@ -80,6 +80,48 @@ bool IsPalindrome(int x){
 	}	
 	
 	return true;
+}
+
+int Reverse(int x){
+	//Takes input a number x and returns the reverse integer
+	//X can be written as x = 10^n*a1 + 10^(n-1)*a2 +...+10*an-1 + an
+	// To reverse :
+	// 1. compute x % 10 to extract the last digit an
+	// 2. result = result * 10 + an
+	// 3. divide x with 10 and continue with the above steps until no x remains
+	// Time Complexity O(n)
+	
+	
+	//Definitions
+	int result = 0;
+	int x_remaining = x;
+	
+	//Loop until x_remaining becomes 0
+	while (x_remaining !=0){
+		//Applying the formula
+		result = result* 10 + x_remaining % 10;
+		//Go to next Digit
+		x_remaining /= 10; 
+	}
+	return result;
+}
+
+
+
+bool AlternativeIsPalindrome(int x){
+	//Takes input an integer x and returns true if it is a Palindrome, false otherwise
+	//This is an alternative version of optimized algorithm of NaiveIsPalindrome
+	//We use the reverse function to xompute the reverse of x 
+	// Then Compare reverse x with x
+	// Using the Reverse Function from Reverse.cpp
+	//Time Complexity O(n)
+	
+	//Checking for the 2 cases
+	if (x < 0) return false;
+	if (x == 0) return true;
+	
+
+	return Reverse(x) == x ;
 }
 
 
@@ -120,6 +162,8 @@ int main(int argc,char ** argv){
 	//Output if x is Palindrome from NaiveIsPalindrome
 	std::cout << "[N] Is x a Palindrome :" << NaiveIsPalindrome(x) << "\n" ;
 	//Output if x is Palindrome from optimized IsPalindrome
+	std::cout << "[o] Is x a Palindrome :" << NaiveIsPalindrome(x) << "\n" ;
+	//Output if x is Palindrome from altrenative IsPalindrome
 	std::cout << "[o] Is x a Palindrome :" << NaiveIsPalindrome(x) << "\n" ;
 
 }
