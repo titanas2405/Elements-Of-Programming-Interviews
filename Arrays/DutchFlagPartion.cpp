@@ -214,7 +214,9 @@ int main(int argc,char ** argv){
 	int i = *o_i;
 	std::vector<int> ints;
 	
+	//Iterationg the vecotr
 	for (const auto& s : o_array) {
+		//Parsing
 		std::optional<int> n = ParseInt(s);
 		if (!n) {
 			std::cout << "Error parsing '" << s << "' into a number\n";
@@ -224,15 +226,27 @@ int main(int argc,char ** argv){
 	}
 	
 	
-	
+	//Checking if i is inside bounds 
 	if (i < 0 || i > (int)ints.size()){ 
 		std::cout << "i out of bounds\n" ;
 		return 1;
 	}
-				   
-	PrintVector(ints);
-	OptimizedDutchFlagPartition(i,ints);
-	PrintVector(ints);
-	std::cout << "i :" << i << "\n" ;
 	
+	
+	
+	
+	//Printing the vector before 
+	PrintVector(ints);
+	
+	std::cout << "Pivot :" << ints[i] << "\n" ;
+	
+	
+	//Applying optimized algorithm 
+	OptimizedDutchFlagPartition(i,ints);
+	
+	//Printing the vector after
+	PrintVector(ints);
+	
+	
+
 }
