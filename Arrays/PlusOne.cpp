@@ -87,6 +87,8 @@ std::vector<int> PlusOne(std::vector<int>A){
 	//Do this until no more digits or digit + 1 is less than 10
 	//At end we check if the last digit is 10. In the case of being 10, we
 	//increase the vector and insert 1 at end to count for the overflow
+	//Time complexity is O(n)
+	
 	
 	//Add 1 to the first digit
 	++A.back();
